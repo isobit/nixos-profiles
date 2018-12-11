@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 # S3 sleep is not supported out of the box so a few steps are taken here to
 # mitigate, mainly reducing the power consumption of S0i3 sleep mode and

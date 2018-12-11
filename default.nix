@@ -15,7 +15,6 @@
 
   programs = {
     less.enable = true;
-    # thefuck.enable = true;
     zsh = {
       enable = true;
       promptInit = ""; # Disable default promptinit to fix leftover right prompt
