@@ -18,9 +18,13 @@
 
   services = {
 
+    acpid.enable = true;
+
     thinkfan = {
       enable = lib.mkDefault true;
-      sensor = lib.mkDefault "/sys/devices/virtual/hwmon/hwmon1/temp1_input";
+      sensors = lib.mkDefault ''
+        hwmon /sys/devices/virtual/hwmon/hwmon0/temp1_input
+      '';
     };
 
     xserver = {
