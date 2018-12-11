@@ -11,7 +11,7 @@
     defaultLocale = "en_US.UTF-8";
   };
 
-  time.timeZone = "America/Chicago";
+  time.timeZone = lib.mkDefault "UTC";
 
   programs = {
     less.enable = true;
