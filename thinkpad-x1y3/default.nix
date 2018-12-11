@@ -16,6 +16,8 @@
   # Enable Synaptics RMI so that Touchpad and TrackPoint both work
   boot.kernelParams = [ "psmouse.synaptics_intertouch=1" ];
 
+  boot.kernelModules = [ "thinkpad_acpi" ];
+
   services = {
 
     acpid.enable = true;
