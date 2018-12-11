@@ -6,7 +6,7 @@
 {
 
   # TODO: Build as part of package or something
-  boot.initrd.prepend = [ "/boot/acpi_s3_fix" ];
+  boot.initrd.prepend = [ "${/etc/nixos/acpi_s3_fix}" ];
 
   boot.kernelParams = [ "mem_sleep_default=deep" ];
 
