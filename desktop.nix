@@ -25,7 +25,6 @@
       displayManager.gdm.enable = true;
 
       desktopManager = {
-        default = "gnome3";
         gnome3 = {
           enable = true;
           extraGSettingsOverrides = let
@@ -47,5 +46,4 @@
 
   };
 
-  # sound.enable = true;
 }

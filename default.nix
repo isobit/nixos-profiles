@@ -14,8 +14,8 @@
   time.timeZone = "America/Chicago";
 
   programs = {
-    thefuck.enable = true;
     less.enable = true;
+    # thefuck.enable = true;
     zsh = {
       enable = true;
       promptInit = ""; # Disable default promptinit to fix leftover right prompt

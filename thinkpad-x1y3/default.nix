@@ -34,9 +34,6 @@
       '';
     };
 
-    # TODO: Is this needed?
-    # acpid.enable = true;
-
     # This would enable the fingerprint reader, but it appears the X1 Yoga
     # 3rd Gen's specific hardware is not supported yet.
     # See https://forums.lenovo.com/t5/Linux-Discussion/X1C-gen-6-Fibocom-L850-GL-Ubuntu-18-04/m-p/4078413
