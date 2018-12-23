@@ -48,7 +48,11 @@
 
   };
 
+  # Boot with bluetooth disabled
   hardware.bluetooth.powerOnBoot = false;
+
+  # Enable bluetooth audio
+  hardware.pulseaudio.package = pkgs.pulseaudioFull;
 
   systemd.services.thinkpad-x1y3-cpu-throttling-fix = {
     enable = true;
