@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-
   # Larger console font
   i18n.consoleFont = lib.mkDefault "latarcyrheb-sun32";
 
@@ -17,5 +16,4 @@
   #   GDK_SCALE = "2";
   #   GDK_DPI_SCALE = "0.5";
   # };
-
 }

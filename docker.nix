@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-
   virtualisation.docker = {
     enable = true;
     enableOnBoot = false;
@@ -12,5 +11,4 @@
       extraGroups = [ "docker" ];
     };
   };
-
 }

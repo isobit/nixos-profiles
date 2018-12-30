@@ -7,7 +7,6 @@
 # https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X1_Carbon_(Gen_6)#Suspend_issues
 
 {
-
   # Reduces power consumption of S0i3 sleep mode, see the following for
   # more info and additional power saving tips:
   # https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X1_Carbon_(Gen_6)#S0i3_sleep_support
@@ -21,5 +20,4 @@
     # Always hibernate when lid is closed, regardless of sleep state
     extraConfig = lib.mkDefault "LidSwitchIgnoreInhibited=yes";
   };
-
 }

@@ -9,21 +9,14 @@
   ];
 
   services = {
-
     locate.enable = true;
-
     printing.enable = true;
-
     gnome3.gnome-keyring.enable = true;
-
     xserver = {
-
       enable = true;
       layout = "us";
       xkbOptions = "caps:escape";
-
       displayManager.gdm.enable = true;
-
       desktopManager = {
         gnome3 = {
           enable = true;
@@ -41,9 +34,6 @@
               '';
         };
       };
-
     };
-
   };
-
 }

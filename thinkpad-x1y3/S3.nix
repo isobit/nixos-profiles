@@ -4,7 +4,6 @@
 # following instructions: https://delta-xi.net/#056
 
 {
-
   # TODO: Build as part of package or something
   boot.initrd.prepend = [ "${/etc/nixos/acpi_s3_fix}" ];
 
@@ -33,5 +32,4 @@
       modprobe psmouse
     '';
   };
-
 }

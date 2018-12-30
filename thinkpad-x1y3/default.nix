@@ -82,5 +82,4 @@
       Unit = "thinkpad-x1y3-cpu-throttling-fix.service";
     };
   };
-
 }
