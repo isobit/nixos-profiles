@@ -4,9 +4,7 @@
   # Requires github.com/NixOS/nixos-hardware channel
   imports = [
     <nixos-hardware/lenovo/thinkpad>
-    <nixos-hardware/lenovo/thinkpad/acpi_call.nix>
     <nixos-hardware/common/cpu/intel>
-    <nixos-hardware/common/pc/ssd>
   ];
 
   # This should be covered by <nixos-hardware/lenovo/thinkpad/acpi_call.nix>
@@ -48,8 +46,6 @@
 
   };
 
-  # Boot with bluetooth disabled
-  hardware.bluetooth.powerOnBoot = false;
 
   # Enable bluetooth audio
   hardware.pulseaudio.package = pkgs.pulseaudioFull;
