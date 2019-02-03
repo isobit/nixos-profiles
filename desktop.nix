@@ -9,6 +9,7 @@
   ];
 
   services = {
+    avahi.enable = true;  # mDNS
     locate.enable = true;
     printing.enable = true;
     gnome3.gnome-keyring.enable = true;
