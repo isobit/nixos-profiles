@@ -43,9 +43,12 @@
     multitouch.enable = lib.mkDefault true;
     wacom.enable = lib.mkDefault true;
 
-    # Fix visual tearing in some full-screen applications (e.g. GNOME Videos)
+    videoDrivers = [ "intel" ];
+
+    # Fix visual tearing in some applications
+    # https://wiki.archlinux.org/index.php/Intel_graphics
     deviceSection = ''
-      Option "AccelMethod" "sna"
+      Option "AccelMethod" "uxa"
       Option "TearFree" "true"
     '';
   };
