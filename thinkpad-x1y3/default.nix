@@ -26,21 +26,16 @@
   # Enable Synaptics RMI so that Touchpad and TrackPoint both work
   boot.kernelParams = [ "psmouse.synaptics_intertouch=1" ];
 
-  # TODO attempt to fix /proc/acpi/ibm/thermal
-  # boot.kernelModules = [ "thinkpad_acpi" ];
-
   # Enable acpid to handle special keys, power/sleep/suspend button, notebook
   # lid close, etc.
   services.acpid.enable = true;
 
   # ThinkFan controls fans by watching temperature data
+  # https://wiki.archlinux.org/index.php/Fan_speed_control#ThinkPad_laptops
   services.thinkfan = {
     enable = true;
-    # TODO hwmon location keeps changing location for some reason, need to find
-    # a better way...
     sensors = lib.mkDefault ''
-        # tp_thermal /proc/acpi/ibm/thermal
-        hwmon /sys/devices/virtual/hwmon/hwmon1/temp1_input
+      hwmon /sys/devices/virtual/thermal/thermal_zone0/temp
     '';
   };
 
