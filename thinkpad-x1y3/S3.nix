@@ -2,6 +2,7 @@
 
 # Enables S3 suspend state after patching the ACPI DSDT table using the
 # following instructions: https://delta-xi.net/#056
+# https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X1_Yoga_(Gen_3)#Suspend_issues
 
 {
   # TODO: Build as part of package or something
@@ -11,6 +12,7 @@
 
   services.logind.lidSwitch = lib.mkDefault "suspend";
 
+  # Automatically fixes some issue that arise when resuming from sleep
   systemd.services.thinkpad-x1y3-s3-resume-fix = {
     enable = true;
     description = "ThinkPad X1Y3 S3 Resume Fix";
