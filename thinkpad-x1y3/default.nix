@@ -55,15 +55,7 @@
   services.xserver = {
     multitouch.enable = lib.mkDefault true;
     wacom.enable = lib.mkDefault true;
-
     videoDrivers = [ "intel" ];
-
-    # Fix visual tearing in some applications
-    # https://wiki.archlinux.org/index.php/Intel_graphics
-    deviceSection = ''
-      Option "AccelMethod" "uxa"
-      Option "TearFree" "true"
-    '';
   };
 
   # TODO This would enable the fingerprint reader, but it appears the X1 Yoga
