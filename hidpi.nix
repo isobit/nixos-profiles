@@ -9,11 +9,4 @@
 
   # Try use maximum resolution in systemd-boot
   boot.loader.systemd-boot.consoleMode = lib.mkDefault "max";
-
-  # services.xserver.dpi = 210;
-  # fonts.fontconfig.dpi = 210;
-  # environment.variables = {
-  #   GDK_SCALE = "2";
-  #   GDK_DPI_SCALE = "0.5";
-  # };
 }
