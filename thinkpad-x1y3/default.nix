@@ -35,7 +35,20 @@
   services.thinkfan = {
     enable = true;
     sensors = lib.mkDefault ''
-      hwmon /sys/devices/virtual/thermal/thermal_zone0/temp
+      hwmon /sys/devices/virtual/thermal/thermal_zone9/temp (-5) # x86_pkg_temp
+      hwmon /sys/devices/virtual/thermal/thermal_zone7/temp # pch_skylake
+      hwmon /sys/devices/virtual/thermal/thermal_zone5/temp (5) # CHAG
+      hwmon /sys/devices/virtual/thermal/thermal_zone8/temp (5) # iwlwifi
+      hwmon /sys/devices/virtual/thermal/thermal_zone6/temp (10) # SSD0
+    '';
+    levels = lib.mkDefault ''
+      (0, 0, 55)
+      (1, 48, 60)
+      (2, 50, 61)
+      (3, 52, 63)
+      (6, 56, 65)
+      (7, 60, 85)
+      (127, 80, 32767)
     '';
   };
 
