@@ -51,6 +51,7 @@
       (127, 80, 32767)
     '';
   };
+  systemd.services.thinkfan.after = [ "acpid.service" ];
 
   services.xserver = {
     multitouch.enable = lib.mkDefault true;
