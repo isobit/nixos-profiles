@@ -30,11 +30,9 @@
     jq
     pstree
     python3Full
-    ruby
     screen
-    subversion
     unzip
-    vim 
+    vim
     wget
     zip
   ];
