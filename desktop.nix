@@ -35,10 +35,10 @@
         background = "#333333";
         greeters.gtk = {
           theme.name = "Adwaita-dark";
-          iconTheme = {
-            package = pkgs.numix-icon-theme-square;
-            name = "Numix-Square";
-          };
+          # iconTheme = {
+          #   package = pkgs.numix-icon-theme-square;
+          #   name = "Numix-Square";
+          # };
         };
       };
 
