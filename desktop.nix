@@ -29,18 +29,18 @@
       xkbOptions = "caps:escape";
 
       # Not using GDM because it causes issues with bluetooth audio
-      # displayManager.gdm.enable = true;
-      displayManager.lightdm = {
-        enable = true;
-        background = "#333333";
-        greeters.gtk = {
-          theme.name = "Adwaita-dark";
-          # iconTheme = {
-          #   package = pkgs.numix-icon-theme-square;
-          #   name = "Numix-Square";
-          # };
-        };
-      };
+      displayManager.gdm.enable = true;
+      # displayManager.lightdm = {
+      #   enable = true;
+      #   background = "#333333";
+      #   greeters.gtk = {
+      #     theme.name = "Adwaita-dark";
+      #     # iconTheme = {
+      #     #   package = pkgs.numix-icon-theme-square;
+      #     #   name = "Numix-Square";
+      #     # };
+      #   };
+      # };
 
       # Disabling xterm will let lightdm fall back on launching GNOME by
       # default. TODO figure out a better way to do this.
