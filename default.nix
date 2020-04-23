@@ -6,10 +6,8 @@
     efi.canTouchEfiVariables = lib.mkDefault true;
   };
 
-  i18n = {
-    consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
-  };
+  console.keyMap = lib.mkDefault "us";
+  i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
 
   time.timeZone = lib.mkDefault "UTC";
 

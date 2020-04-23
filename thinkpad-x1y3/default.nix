@@ -58,7 +58,9 @@
   systemd.services.thinkfan.after = [ "acpid.service" ];
 
   services.xserver = {
-    multitouch.enable = lib.mkDefault true;
+    # TODO figure out replacement for multitouch since it was deprecated in
+    # NixOS 20.03
+    # multitouch.enable = lib.mkDefault true;
     wacom.enable = lib.mkDefault true;
     videoDrivers = [ "intel" ];
   };
