@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     gnomeExtensions.dash-to-panel
+    gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.system-monitor
     numix-cursor-theme
     numix-icon-theme-square
