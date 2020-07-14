@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  hardware.u2f.enable = true;
-
-  services.udev.packages = with pkgs; [ yubikey-personalization ];
+  services.udev.packages = with pkgs; [
+    yubikey-personalization
+  ];
 
   environment.systemPackages = (with pkgs; [
     yubikey-personalization
