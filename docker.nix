@@ -8,6 +8,10 @@
     enableOnBoot = false;
     # Equivalent of /etc/docker/daemon.json
     extraOptions = "--config-file=${pkgs.writeText "daemon.json" (builtins.toJSON {
+      features = {
+        buildkit = true;
+      };
+
       # Fix for route conflicts with VPNs, which typically operate in the
       # 172.16.0.0/12 space.
       bip = "192.168.253.0/23";
