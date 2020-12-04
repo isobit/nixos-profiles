@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    gnome3.gnome-tweaks
     gnomeExtensions.dash-to-panel
     gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.system-monitor

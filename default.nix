@@ -21,16 +21,22 @@
 
   environment.systemPackages = with pkgs; [
     bash
+    bat
     curl
+    git-lfs
     gitAndTools.gitFull
+    gitAndTools.delta
+    gnumake
+    gnupg
     gnutar
     htop
     jq
+    neovim
     pstree
     python3Full
+    ripgrep
     screen
     unzip
-    vim
     wget
     zip
   ];
