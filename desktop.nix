@@ -23,14 +23,20 @@
   ];
 
   services = {
+    locate.enable = true; # Periodically update the "locate" database
+    xbanish.enable = true; # Hide cursor when typing
+
     avahi = {
       # Enables mDNS with .local domain support
       enable = true;
       nssmdns = true;
     };
-    locate.enable = true; # Periodically update the "locate" database
-    printing.enable = true;
-    xbanish.enable = true; # Hide cursor when typing
+
+    printing = {
+      enable = true;
+      drivers = with pkgs; [ gutenprintBin ];
+    };
+
     xserver = {
       enable = true;
 
