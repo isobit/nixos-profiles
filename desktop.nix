@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     gnome3.gnome-tweaks
+    gnomeExtensions.appindicator
     gnomeExtensions.dash-to-panel
     gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.system-monitor
@@ -22,33 +23,23 @@
   ];
 
   services = {
-    avahi.enable = true;  # mDNS
-    locate.enable = true;
+    avahi = {
+      # Enables mDNS with .local domain support
+      enable = true;
+      nssmdns = true;
+    };
+    locate.enable = true; # Periodically update the "locate" database
     printing.enable = true;
     xbanish.enable = true; # Hide cursor when typing
     xserver = {
       enable = true;
+
+      # Keyboard settings
       layout = "us";
-      xkbOptions = "caps:escape";
+      xkbOptions = "caps:escape"; # Turn caps lock into another escape key
 
-      # Not using GDM because it causes issues with bluetooth audio
       displayManager.gdm.enable = true;
-      # displayManager.lightdm = {
-      #   enable = true;
-      #   background = "#333333";
-      #   greeters.gtk = {
-      #     theme.name = "Adwaita-dark";
-      #     # iconTheme = {
-      #     #   package = pkgs.numix-icon-theme-square;
-      #     #   name = "Numix-Square";
-      #     # };
-      #   };
-      # };
 
-      # Disabling xterm will let lightdm fall back on launching GNOME by
-      # default. TODO figure out a better way to do this.
-      desktopManager.xterm.enable = false;
-      
       desktopManager.gnome3 = {
         enable = true;
         extraGSettingsOverrides =
