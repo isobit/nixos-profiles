@@ -23,9 +23,10 @@
     bash
     bat
     curl
+    fzf
     git-lfs
-    gitAndTools.gitFull
     gitAndTools.delta
+    gitAndTools.gitFull
     gnumake
     gnupg
     gnutar

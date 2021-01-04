@@ -1,15 +1,30 @@
 { config, lib, pkgs, ... }:
 
 {
+  # Unfree needed for firefox-bin
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
-    gnome3.gnome-tweaks
+    # GNOME extensions
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-panel
     gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.system-monitor
+
+    # GNOME apps
+    gnome3.gnome-tweaks
+
+    # Numix theme
     numix-cursor-theme
     numix-icon-theme-square
     numix-sx-gtk-theme
+
+    # Applications
+    firefox-bin
+    libreoffice
+
+    # Command-line utils
+    trash-cli
     xclip
   ];
 
