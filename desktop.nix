@@ -1,16 +1,18 @@
 { config, lib, pkgs, ... }:
 
+let
+  enabledGnomeExtensionPackages = with pkgs; [
+    gnomeExtensions.appindicator
+    gnomeExtensions.dash-to-panel
+    gnomeExtensions.sound-output-device-chooser
+    gnomeExtensions.system-monitor
+  ];
+in
 {
   # Unfree needed for firefox-bin
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    # GNOME extensions
-    gnomeExtensions.appindicator
-    gnomeExtensions.dash-to-panel
-    gnomeExtensions.sound-output-device-chooser
-    gnomeExtensions.system-monitor
-
     # GNOME apps
     gnome3.gnome-tweaks
 
@@ -26,7 +28,7 @@
     # Command-line utils
     trash-cli
     xclip
-  ];
+  ] ++ enabledGnomeExtensionPackages;
 
   fonts.fonts = with pkgs; [
     noto-fonts
@@ -74,6 +76,9 @@
             toggle-maximized=['<Alt>Plus']
             ${lib.strings.concatMapStringsSep "\n" (i: "switch-to-workspace-${i}=['<Alt>${i}']") workspaces}
             ${lib.strings.concatMapStringsSep "\n" (i: "move-to-workspace-${i}=['<Alt><Shift>${i}']") workspaces}
+
+            [org.gnome.shell]
+            enabled-extensions=[${lib.strings.concatMapStringsSep "," (p: "'${p.uuid}'") enabledGnomeExtensionPackages}]
           '';
       };
     };
