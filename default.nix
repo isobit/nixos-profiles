@@ -22,7 +22,9 @@
   environment.systemPackages = with pkgs; [
     bash
     bat
+    bind # includes dig
     curl
+    fd
     fzf
     git-lfs
     gitAndTools.delta
@@ -37,6 +39,8 @@
     python3Full
     ripgrep
     screen
+    tree
+    units
     unzip
     wget
     zip
