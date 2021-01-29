@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  buildkit = true;
+in
 {
   virtualisation.docker = {
     enable = true;
@@ -9,7 +12,7 @@
     # Equivalent of /etc/docker/daemon.json
     extraOptions = "--config-file=${pkgs.writeText "daemon.json" (builtins.toJSON {
       features = {
-        buildkit = true;
+        buildkit = buildkit;
       };
 
       # Fix for route conflicts with VPNs, which typically operate in the
@@ -32,4 +35,6 @@
   environment.systemPackages = with pkgs; [
     docker-compose
   ];
+
+  environment.variables.COMPOSE_DOCKER_CLI_BUILD = lib.mkIf buildkit "1";
 }
