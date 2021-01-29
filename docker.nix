@@ -8,7 +8,7 @@ in
     enable = true;
     # Use socket activation by default, override in configuration.nix if
     # desired.
-    enableOnBoot = false;
+    enableOnBoot = lib.mkDefault false;
     # Equivalent of /etc/docker/daemon.json
     extraOptions = "--config-file=${pkgs.writeText "daemon.json" (builtins.toJSON {
       features = {
