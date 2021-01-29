@@ -23,6 +23,7 @@ in
 
     # Applications
     firefox-bin
+    gnome3.gnome-photos
     libreoffice
 
     # Command-line utils
