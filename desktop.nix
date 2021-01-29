@@ -79,6 +79,9 @@ in
             ${lib.strings.concatMapStringsSep "\n" (i: "switch-to-workspace-${i}=['<Alt>${i}']") workspaces}
             ${lib.strings.concatMapStringsSep "\n" (i: "move-to-workspace-${i}=['<Alt><Shift>${i}']") workspaces}
 
+            [org.gnome.settings-daemon.plugins.color]
+            night-light-enabled=true
+
             [org.gnome.shell]
             enabled-extensions=[${lib.strings.concatMapStringsSep "," (p: "'${p.uuid}'") enabledGnomeExtensionPackages}]
           '';
