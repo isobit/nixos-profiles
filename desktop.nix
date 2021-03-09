@@ -27,6 +27,7 @@ in
     libreoffice
 
     # Command-line utils
+    hwinfo
     trash-cli
     xclip
   ] ++ enabledGnomeExtensionPackages;
