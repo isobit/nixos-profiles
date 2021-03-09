@@ -24,7 +24,9 @@
     bat
     bind # includes dig
     curl
+    direnv
     fd
+    file
     fzf
     git-lfs
     gitAndTools.delta
