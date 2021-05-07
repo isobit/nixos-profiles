@@ -30,7 +30,8 @@
     file
     fzf
     git-lfs
-    gitAndTools.delta
+    # gitAndTools.delta
+    (import (fetchTarball "channel:nixos-unstable") {}).gitAndTools.delta
     gitAndTools.gitFull
     gnumake
     gnupg
