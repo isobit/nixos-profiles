@@ -47,8 +47,8 @@ in
 
     avahi = {
       # Enables mDNS with .local domain support
-      enable = true;
-      nssmdns = true;
+      enable = lib.mkDefault true;
+      nssmdns = lib.mkDefault true;
     };
 
     printing = {
