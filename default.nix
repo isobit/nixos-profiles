@@ -22,6 +22,7 @@
   environment.systemPackages = with pkgs; [
     bash
     bat
+    bc
     bind # includes dig
     curl
     direnv
@@ -36,6 +37,7 @@
     gnutar
     htop
     jq
+    moreutils
     neovim
     pstree
     python3Full
