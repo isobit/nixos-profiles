@@ -6,7 +6,7 @@
     gnomeExtensions.appindicator
   ];
   services.dbus.packages = with pkgs; [ flameshot ];
-  services.xserver.desktopManager.gnome3.extraGSettingsOverrides = ''
+  services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
     [org.gnome.settings-daemon.plugins.media-keys]
     screenshot=[]
 

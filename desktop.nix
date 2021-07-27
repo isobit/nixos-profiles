@@ -14,7 +14,7 @@ in
 
   environment.systemPackages = with pkgs; [
     # GNOME apps
-    gnome3.gnome-tweaks
+    gnome.gnome-tweaks
 
     # Numix theme
     numix-cursor-theme
@@ -23,7 +23,7 @@ in
 
     # Applications
     firefox-bin
-    gnome3.gnome-photos
+    gnome.gnome-photos
     libreoffice
 
     # Command-line utils
@@ -65,7 +65,7 @@ in
 
       displayManager.gdm.enable = true;
 
-      desktopManager.gnome3 = {
+      desktopManager.gnome = {
         enable = true;
         extraGSettingsOverrides =
           let
