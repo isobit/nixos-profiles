@@ -22,9 +22,12 @@ in
     numix-sx-gtk-theme
 
     # Applications
+    alacritty
+    chromium
     firefox-bin
     gnome.gnome-photos
     libreoffice
+    spotify
 
     # Command-line utils
     hwinfo
