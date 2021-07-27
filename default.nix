@@ -6,6 +6,17 @@
     efi.canTouchEfiVariables = lib.mkDefault true;
   };
 
+  boot.kernel.sysctl = {
+    # The default for this is 15, which lets the kernel retransmit unacked TCP
+    # packets for up to ~15 minutes (using an exponential backoff) before
+    # closing the connection. Reducing this to 5 gives a much lower timeout of
+    # ~12.6 seconds. Note thatRFC 1122 recommends at least 100 seconds for the
+    # timeout, which corresponds to a value of at least 8.
+    # See https://pracucci.com/linux-tcp-rto-min-max-and-tcp-retries2.html for
+    # more info.
+    "net.ipv4.tcp_retries2" = 5;
+  };
+
   console.keyMap = lib.mkDefault "us";
   i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
 
