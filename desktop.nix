@@ -87,7 +87,7 @@ in
             night-light-enabled=true
 
             [org.gnome.shell]
-            enabled-extensions=[${lib.strings.concatMapStringsSep "," (p: "'${p.uuid}'") enabledGnomeExtensionPackages}]
+            enabled-extensions=[${lib.strings.concatMapStringsSep "," (p: "'${p.extensionUuid}'") enabledGnomeExtensionPackages}]
           '';
       };
     };
