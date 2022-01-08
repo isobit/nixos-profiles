@@ -30,7 +30,9 @@ in
     spotify
 
     # Command-line utils
+    graphviz
     hwinfo
+    pandoc
     trash-cli
     xclip
   ] ++ enabledGnomeExtensionPackages;

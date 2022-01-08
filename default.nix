@@ -40,25 +40,42 @@
     fd
     file
     fzf
-    git-lfs
-    gitAndTools.delta
-    gitAndTools.gitFull
     gnumake
     gnupg
     gnutar
+    gron
     htop
     jq
     moreutils
     neovim
+    openssl
     pstree
     python3Full
     ripgrep
+    rq
     screen
     tree
     units
     unzip
     wget
     zip
+
+    # git
+    git-lfs
+    gitAndTools.delta
+    gitAndTools.gitFull
+    lazygit
+
+    # networking tools
+    conntrack_tools
+    ncat
+    nftables
+
+    # heavier dev tools
+    gh # github cli
+    pgcli
+    rq
+    shellcheck
   ];
 
   users.users = {
