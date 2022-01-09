@@ -58,7 +58,7 @@ in
 
     printing = {
       enable = true;
-      drivers = with pkgs; [ gutenprintBin ];
+      drivers = with pkgs; [ gutenprint gutenprintBin ];
     };
 
     xserver = {
