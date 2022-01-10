@@ -47,7 +47,13 @@ in
   ];
 
   services = {
-    locate.enable = true; # Periodically update the "locate" database
+    # Periodically update the "locate" database
+    locate = {
+      enable = true;
+      locate = pkgs.mlocate;
+      localuser = null; # silence warnings about running as root
+    };
+
     xbanish.enable = true; # Hide cursor when typing
 
     avahi = {
