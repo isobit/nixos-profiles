@@ -38,6 +38,8 @@ in
     xclip
   ] ++ enabledGnomeExtensionPackages;
 
+  environment.variables.MOZ_ENABLE_WAYLAND = "1";
+
   fonts.fonts = with pkgs; [
     noto-fonts
     noto-fonts-cjk
