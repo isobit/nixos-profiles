@@ -50,6 +50,9 @@ in
   ];
 
   services = {
+    # Firmware updates
+    fwupd.enable = true;
+
     # Periodically update the "locate" database
     locate = {
       enable = true;
