@@ -28,6 +28,7 @@ in
     gnome.gnome-photos
     libreoffice
     spotify
+    vlc
 
     # Command-line utils
     graphviz
