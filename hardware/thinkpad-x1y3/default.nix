@@ -3,8 +3,7 @@
 {
   # Requires github.com/NixOS/nixos-hardware channel
   imports = [
-    <nixos-hardware/lenovo/thinkpad>
-    <nixos-hardware/common/cpu/intel>
+    <nixos-hardware/lenovo/thinkpad/x1/yoga>
     ./cpu-throttling-fix.nix
   ];
 
