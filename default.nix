@@ -61,9 +61,9 @@
     zip
 
     # git
+    gitFull
     git-lfs
-    gitAndTools.delta
-    gitAndTools.gitFull
+    delta
     lazygit
 
     # networking tools
