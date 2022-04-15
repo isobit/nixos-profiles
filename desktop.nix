@@ -22,13 +22,13 @@ in
     numix-sx-gtk-theme
 
     # Applications
-    alacritty
     chromium
     firefox-bin
     gnome.gnome-photos
     libreoffice
     spotify
     vlc
+    wezterm
 
     # Command-line utils
     graphviz
