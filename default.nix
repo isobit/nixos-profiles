@@ -47,7 +47,6 @@
     htop
     jq
     moreutils
-    neovim
     openssl
     pstree
     python3Full
@@ -59,6 +58,9 @@
     unzip
     wget
     zip
+
+    # TODO how to deal with this vs separate import
+    #neovim
 
     # git
     gitFull
