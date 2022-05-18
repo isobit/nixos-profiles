@@ -31,10 +31,4 @@ in
       extraGroups = [ "docker" ];
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    docker-compose
-  ];
-
-  environment.variables.COMPOSE_DOCKER_CLI_BUILD = lib.mkIf buildkit "1";
 }
