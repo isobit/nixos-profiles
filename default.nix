@@ -53,6 +53,7 @@
     ripgrep
     rq
     screen
+    sd
     tree
     units
     unzip
