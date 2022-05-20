@@ -41,5 +41,6 @@ in
     jq                      # JSON
     rubyPackages.solargraph # ruby
     yamllint                # YAML
+    deno                    # Javascript/TypeScript
   ];
 }
