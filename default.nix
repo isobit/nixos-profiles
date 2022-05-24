@@ -37,6 +37,7 @@
     bind # includes dig
     curl
     direnv
+    entr
     fd
     file
     fzf
