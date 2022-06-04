@@ -71,8 +71,8 @@
     lazygit
 
     # networking tools
-    conntrack_tools
-    ncat
+    conntrack-tools
+    nmap
     nftables
 
     # heavier dev tools

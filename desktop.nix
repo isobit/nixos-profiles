@@ -24,7 +24,7 @@ in
     # Applications
     chromium
     firefox-bin
-    gnome.gnome-photos
+    gnome-photos
     libreoffice
     spotify
     vlc
