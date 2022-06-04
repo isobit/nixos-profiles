@@ -9,6 +9,10 @@ let
   ];
 in
 {
+  imports = [
+    ./flameshot.nix
+  ];
+
   # Unfree needed for firefox-bin
   nixpkgs.config.allowUnfree = true;
 
