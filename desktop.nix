@@ -4,6 +4,7 @@ let
   enabledGnomeExtensionPackages = with pkgs; [
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-panel
+    gnomeExtensions.just-perfection
     gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.system-monitor
   ];
