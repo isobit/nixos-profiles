@@ -67,6 +67,7 @@
     # git
     gitFull
     git-lfs
+    git-absorb
     delta
     lazygit
 
