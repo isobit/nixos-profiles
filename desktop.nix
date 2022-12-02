@@ -11,6 +11,7 @@ in
 {
   imports = [
     ./flameshot.nix
+    ./wezterm.nix
   ];
 
   # Unfree needed for firefox-bin
@@ -32,7 +33,6 @@ in
     libreoffice
     spotify
     vlc
-    wezterm
 
     # Command-line utils
     graphviz
