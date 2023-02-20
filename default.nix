@@ -30,6 +30,9 @@
     };
   };
 
+  # Enable nix command
+  nix.settings.experimental-features = [ "nix-command" ];
+
   environment.systemPackages = with pkgs; [
     bash
     bat
@@ -48,6 +51,7 @@
     htop
     jq
     moreutils
+    nixos-option
     openssl
     pstree
     python3Full
