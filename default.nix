@@ -43,6 +43,7 @@
     entr
     fd
     file
+    fq
     fzf
     gnumake
     gnupg
