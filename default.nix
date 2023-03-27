@@ -96,9 +96,12 @@
     josh = {
       isNormalUser = true;
       createHome = true;
+      shell = pkgs.zsh;
       extraGroups = [ "wheel" "networkmanager" ];
       initialHashedPassword = "$6$4EONW0LEpTW$KOPBWFYOHJXX5WPFCioSLZe4FoXqxa33GPtO08deL84Y2IxHvzrvr3KqRQL9Tx7xw95RykIVP918uywPJZuZI/";
-      shell = pkgs.zsh;
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKn5LaTEdKNI+Vtec3i1E+WHBJFwS/4yGYW6hqzF/7fX josh@isobit.io 2023-03-27"
+      ];
     };
   };
 
