@@ -28,7 +28,8 @@ in {
     systemd.services.cloudflare-ddns = {
       description = "Cloudflare DDNS";
       wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" ];
+      wants = [ "network-online.target" ];
+      after = [ "network-online.target" ];
       environment = {
         CLOUDFLARE_API_TOKEN = cfg.apiToken;
         CLOUDFLARE_ZONE_ID = cfg.zoneId;

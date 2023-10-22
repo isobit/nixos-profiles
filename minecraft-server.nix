@@ -33,7 +33,8 @@ in {
     description = "Minecraft Server";
     wantedBy = [ "multi-user.target" ];
     requires = [ "minecraft.socket" ];
-    after = [ "network.target" "minecraft.socket" ];
+    wants = ["network-online.target"];
+    after = ["network-online.target" "minecraft.socket" ];
     serviceConfig = {
       ExecStart = "${pkgs.jdk}/bin/java -server -Xms512M -Xmx4096M -jar server.jar nogui";
       ExecStop = pkgs.writeShellScript "minecraft-server-stop" ''
