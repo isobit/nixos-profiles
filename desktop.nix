@@ -41,7 +41,7 @@ in
     xclip
   ] ++ enabledGnomeExtensionPackages;
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -53,13 +53,6 @@ in
   services = {
     # Firmware updates
     fwupd.enable = true;
-
-    # Periodically update the "locate" database
-    locate = {
-      enable = true;
-      locate = pkgs.mlocate;
-      localuser = null; # silence warnings about running as root
-    };
 
     xbanish.enable = true; # Hide cursor when typing
 
