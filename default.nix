@@ -27,6 +27,7 @@
   time.timeZone = lib.mkDefault "UTC";
 
   programs = {
+    direnv.enable = true;
     less.enable = true;
     nix-ld.enable = true;
     zsh = {
