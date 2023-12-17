@@ -36,8 +36,8 @@
     };
   };
 
-  # Enable nix command
-  nix.settings.experimental-features = [ "nix-command" ];
+  # Enable nix command and flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [
     bash
