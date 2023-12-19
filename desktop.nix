@@ -76,10 +76,10 @@ in
       layout = "us";
       xkbOptions = "caps:escape"; # Turn caps lock into another escape key
 
-      displayManager.gdm.enable = true;
+      displayManager.gdm.enable = lib.mkDefault true;
 
       desktopManager.gnome = {
-        enable = true;
+        enable = lib.mkDefault true;
         extraGSettingsOverrides =
           let
             workspaces = map toString (lib.lists.range 1 9);
