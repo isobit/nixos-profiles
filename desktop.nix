@@ -4,7 +4,7 @@ let
   enabledGnomeExtensionPackages = with pkgs; [
     gnomeExtensions.appindicator
     gnomeExtensions.just-perfection
-    gnomeExtensions.system-monitor
+    (pkgs.callPackage ./gnome-system-monitor-next/package.nix {})
   ];
 in
 {
@@ -39,6 +39,8 @@ in
     pandoc
     trash-cli
     xclip
+
+    libgtop # needed by gnomeExtensions.system-monitor-next
   ] ++ enabledGnomeExtensionPackages;
 
   fonts.packages = with pkgs; [
@@ -97,6 +99,7 @@ in
             [org.gnome.shell]
             enabled-extensions=[${lib.strings.concatMapStringsSep "," (p: "'${p.extensionUuid}'") enabledGnomeExtensionPackages}]
           '';
+        sessionPath = with pkgs; [ libgtop glib-networking ]; # TODO hack for gnome-shell-system-monitor-next since the patch isn't working?
       };
     };
   };

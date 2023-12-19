@@ -1,0 +1,21 @@
+--- a/system-monitor-next@paradoxxx.zero.gmail.com/extension.js
++++ b/system-monitor-next@paradoxxx.zero.gmail.com/extension.js
+@@ -18,6 +18,9 @@
+ 
+ // Author: Florian Mounier aka paradoxxxzero
+ 
++imports.gi.GIRepository.Repository.prepend_search_path('@gtop_path@');
++imports.gi.GIRepository.Repository.prepend_search_path('@glib_net_path@');
++
+ import { Extension, gettext as _ } from "resource:///org/gnome/shell/extensions/extension.js";
+ 
+ import Clutter from "gi://Clutter";
+@@ -400,7 +403,7 @@
+         this.connected = false;
+ 
+         this._volumeMonitor = Gio.VolumeMonitor.get();
+-        let sys_mounts = ['/home', '/tmp', '/boot', '/usr', '/usr/local'];
++        let sys_mounts = ['/home', '/tmp', '/boot'];
+         this.base_mounts = ['/'];
+         sys_mounts.forEach((sMount) => {
+             if (this.is_sys_mount(sMount + '/')) {
