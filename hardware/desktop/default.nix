@@ -24,5 +24,11 @@
   # NVIDIA drivers don't play nice with Wayland yet.
   services.xserver.displayManager.gdm.wayland = false;
 
+  # TODO this might be needed if wayland is turned back on?
+  # hardware.nvidia = {
+  #   # Modesetting is needed for most Wayland compositors
+  #   modesetting.enable = true;
+  # };
+
   environment.systemPackages = with pkgs; [ nvtop ];
 }
