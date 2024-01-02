@@ -4,7 +4,7 @@ let
   enabledGnomeExtensionPackages = with pkgs; [
     gnomeExtensions.appindicator
     gnomeExtensions.just-perfection
-    (pkgs.callPackage ./gnome-system-monitor-next/package.nix {})
+    gnomeExtensions.system-monitor-next
   ];
 in
 {
@@ -99,7 +99,6 @@ in
             [org.gnome.shell]
             enabled-extensions=[${lib.strings.concatMapStringsSep "," (p: "'${p.extensionUuid}'") enabledGnomeExtensionPackages}]
           '';
-        sessionPath = with pkgs; [ libgtop glib-networking ]; # TODO hack for gnome-shell-system-monitor-next since the patch isn't working?
       };
     };
   };
