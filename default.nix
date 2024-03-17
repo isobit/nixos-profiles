@@ -92,7 +92,10 @@
     pgcli
     rq
     shellcheck
+    steampipe
+
     cue
+    jsonnet
   ];
 
   users.users = {
