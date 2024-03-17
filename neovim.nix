@@ -5,13 +5,13 @@
     neovim
 
     # language servers
-    efm-langserver       # wraps other linting tools
-    gopls                # golang
-    rnix-lsp             # nix
-    sqls                 # SQL
-    terraform-ls         # terraform
-    yaml-language-server # YAML
+    efm-langserver                    # wraps other linting tools
+    gopls                             # golang
+    nil                               # nix
     python3Packages.python-lsp-server # Python
+    sqls                              # SQL
+    terraform-ls                      # terraform
+    yaml-language-server              # YAML
 
     # general purpose linting tools (used by efm-langserver)
     checkmake               # Makefile
