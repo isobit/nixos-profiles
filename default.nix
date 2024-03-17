@@ -92,6 +92,7 @@
     pgcli
     rq
     shellcheck
+    cue
   ];
 
   users.users = {

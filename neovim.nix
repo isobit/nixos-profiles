@@ -5,6 +5,7 @@
     neovim
 
     # language servers
+    cuelsp                            # CUE
     efm-langserver                    # wraps other linting tools
     gopls                             # golang
     nil                               # nix
