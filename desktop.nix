@@ -61,7 +61,7 @@ in
     avahi = {
       # Enables mDNS with .local domain support
       enable = lib.mkDefault true;
-      nssmdns = lib.mkDefault true;
+      nssmdns4 = lib.mkDefault true;
     };
 
     printing = {
@@ -73,8 +73,10 @@ in
       enable = true;
 
       # Keyboard settings
-      layout = "us";
-      xkbOptions = "caps:escape"; # Turn caps lock into another escape key
+      xkb = {
+        layout = "us";
+        options = "caps:escape"; # Turn caps lock into another escape key
+      };
 
       displayManager.gdm.enable = lib.mkDefault true;
 
