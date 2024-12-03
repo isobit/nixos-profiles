@@ -3,6 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
     solvespace
-    cura
+    # cura # TODO broken package in nixos 24.11?
   ];
 }

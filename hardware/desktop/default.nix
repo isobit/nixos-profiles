@@ -11,24 +11,13 @@
   hardware.bluetooth.enable = false;
 
   # NVIDIA drivers
+  hardware.graphics.enable = true;
   nixpkgs.config.allowUnfree = true;
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true; # needed for docker nvidia
-    extraPackages = with pkgs; [ vaapiVdpau ]; # accelerated video playback
+  hardware.nvidia = {
+    open = false;
+    modesetting.enable = true;
   };
-  virtualisation.docker.enableNvidia = true;
-
-  # NVIDIA drivers don't play nice with Wayland yet.
-  services.xserver.displayManager.gdm.wayland = false;
-
-  # TODO this might be needed if wayland is turned back on?
-  # hardware.nvidia = {
-  #   # Modesetting is needed for most Wayland compositors
-  #   modesetting.enable = true;
-  # };
 
   environment.systemPackages = with pkgs; [ nvtopPackages.full ];
 }

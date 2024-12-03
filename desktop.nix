@@ -17,7 +17,7 @@ in
 
   environment.systemPackages = with pkgs; [
     # GNOME apps
-    gnome.gnome-tweaks
+    gnome-tweaks
 
     # Numix theme
     numix-cursor-theme
@@ -45,7 +45,7 @@ in
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     liberation_ttf
     fira-code
