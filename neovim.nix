@@ -8,7 +8,7 @@
     cuelsp                            # CUE
     efm-langserver                    # wraps other linting tools
     gopls                             # golang
-    nil                               # nix
+    nixd                              # nix
     python3Packages.python-lsp-server # Python
     sqls                              # SQL
     terraform-ls                      # terraform
