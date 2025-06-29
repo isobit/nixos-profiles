@@ -27,6 +27,7 @@ in
     # Applications
     chromium
     firefox-bin
+    ghostty
     gnome-photos
     libreoffice
     spotify
