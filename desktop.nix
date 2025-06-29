@@ -45,12 +45,13 @@ in
   ] ++ enabledGnomeExtensionPackages;
 
   fonts.packages = with pkgs; [
+    fira-code
+    fira-code-symbols
+    liberation_ttf
+    monaspace
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
   ];
 
   services = {
