@@ -47,6 +47,7 @@
     curl
     direnv
     entr
+    exfatprogs # exfat filesystem stuff
     fd
     file
     fq
@@ -60,6 +61,7 @@
     moreutils
     nixos-option
     openssl
+    parted
     pstree
     python3Full
     ripgrep
