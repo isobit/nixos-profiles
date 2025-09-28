@@ -43,6 +43,8 @@ in {
     systemd.timers.cloudflare-ddns = {
       description = "Cloudflare DDNS";
       wantedBy = [ "timers.target" ];
+      wants = [ "network-online.target" ];
+      after = [ "network-online.target" ];
       timerConfig = {
         OnCalendar = cfg.onCalendar;
         Unit = "cloudflare-ddns.service";
