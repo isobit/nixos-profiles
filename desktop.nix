@@ -42,6 +42,8 @@ in
     xclip
 
     libgtop # needed by gnomeExtensions.system-monitor-next
+
+    bitwarden-cli
   ] ++ enabledGnomeExtensionPackages;
 
   fonts.packages = with pkgs; [
