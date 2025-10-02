@@ -59,6 +59,7 @@
     htop
     jq
     moreutils
+    neovim
     nixos-option
     openssl
     parted
@@ -73,9 +74,6 @@
     unzip
     wget
     zip
-
-    # TODO how to deal with this vs separate import
-    #neovim
 
     # git
     gitFull
