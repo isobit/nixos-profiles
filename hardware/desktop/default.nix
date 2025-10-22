@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   # Merge luks options for better SSD performance.
@@ -17,6 +17,10 @@
   # Use better performing proprietary NVIDIA driver
   nixpkgs.config.allowUnfree = true;
   hardware.nvidia.open = false;
+  hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.package =
+    with import <nixos-unstable> { config = { allowUnfree = true; }; };
+    linuxPackages.nvidiaPackages.latest;
 
   environment.systemPackages = with pkgs; [ nvtopPackages.full ];
 }
