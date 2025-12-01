@@ -53,7 +53,7 @@ in
     monaspace
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
   ];
 
   services = {
@@ -81,31 +81,30 @@ in
         layout = "us";
         options = "caps:escape"; # Turn caps lock into another escape key
       };
+    };
 
-      displayManager.gdm.enable = lib.mkDefault true;
+    displayManager.gdm.enable = lib.mkDefault true;
+    desktopManager.gnome = {
+      enable = lib.mkDefault true;
+      extraGSettingsOverrides =
+        let
+          workspaces = map toString (lib.lists.range 1 9);
+        in ''
+          [org.gnome.desktop.wm.preferences]
+          button-layout=':minimize,maximize,close'
 
-      desktopManager.gnome = {
-        enable = lib.mkDefault true;
-        extraGSettingsOverrides =
-          let
-            workspaces = map toString (lib.lists.range 1 9);
-          in ''
-            [org.gnome.desktop.wm.preferences]
-            button-layout=':minimize,maximize,close'
+          [org.gnome.desktop.wm.keybindings]
+          close=['<Alt>w']
+          toggle-maximized=['<Alt>Plus']
+          ${lib.strings.concatMapStringsSep "\n" (i: "switch-to-workspace-${i}=['<Alt>${i}']") workspaces}
+          ${lib.strings.concatMapStringsSep "\n" (i: "move-to-workspace-${i}=['<Alt><Shift>${i}']") workspaces}
 
-            [org.gnome.desktop.wm.keybindings]
-            close=['<Alt>w']
-            toggle-maximized=['<Alt>Plus']
-            ${lib.strings.concatMapStringsSep "\n" (i: "switch-to-workspace-${i}=['<Alt>${i}']") workspaces}
-            ${lib.strings.concatMapStringsSep "\n" (i: "move-to-workspace-${i}=['<Alt><Shift>${i}']") workspaces}
+          [org.gnome.settings-daemon.plugins.color]
+          night-light-enabled=true
 
-            [org.gnome.settings-daemon.plugins.color]
-            night-light-enabled=true
-
-            [org.gnome.shell]
-            enabled-extensions=[${lib.strings.concatMapStringsSep "," (p: "'${p.extensionUuid}'") enabledGnomeExtensionPackages}]
-          '';
-      };
+          [org.gnome.shell]
+          enabled-extensions=[${lib.strings.concatMapStringsSep "," (p: "'${p.extensionUuid}'") enabledGnomeExtensionPackages}]
+        '';
     };
   };
 }

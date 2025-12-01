@@ -64,7 +64,7 @@
     openssl
     parted
     pstree
-    python3Full
+    python3
     ripgrep
     rq
     screen

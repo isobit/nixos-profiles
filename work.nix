@@ -13,7 +13,7 @@
     ssm-session-manager-plugin
     bash
     circleci-cli
-    gitAndTools.gitFull
+    gitFull
     gnumake
     postgresql
     mysql84
