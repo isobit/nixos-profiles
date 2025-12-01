@@ -21,7 +21,7 @@
   # https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X1_Yoga_(Gen_3)#Enabling_S3_(with_BIOS_version_1.33_and_after)
   boot.kernelParams = [ "mem_sleep_default=deep" ];
 
-  services.logind.lidSwitch = "suspend-then-hibernate";
+  services.logind.settings.Login.HandleLidSwitch = "suspend-then-hibernate";
 
   systemd.sleep.extraConfig = ''
     HibernateDelaySec=1h
