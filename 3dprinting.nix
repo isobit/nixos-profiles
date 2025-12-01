@@ -2,7 +2,12 @@
 
 {
   environment.systemPackages = with pkgs; [
+    # CAD
     solvespace
-    # cura # TODO broken package in nixos 24.11?
+    freecad
+
+    # Slicers
+    # cura
+    prusa-slicer
   ];
 }
