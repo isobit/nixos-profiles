@@ -7,7 +7,5 @@
 
   environment.systemPackages = (with pkgs; [
     yubikey-personalization
-  ] ++ lib.optionals (config.services.xserver.enable) [
-    yubikey-personalization-gui
   ]);
 }
