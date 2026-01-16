@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.steam.enable = true;
-  hardware.xone.enable = true;
+  hardware.xone.enable = true; # xbox controller support
   programs.gamemode.enable = true;
 
   environment.systemPackages = with pkgs; [
