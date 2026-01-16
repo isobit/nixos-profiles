@@ -10,6 +10,7 @@ in
 {
   imports = [
     ./flameshot.nix
+    ./via.nix
   ];
 
   # Unfree needed for firefox-bin
