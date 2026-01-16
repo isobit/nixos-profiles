@@ -1,8 +1,12 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.steam.enable = true;
   hardware.xone.enable = true;
   programs.gamemode.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    prismlauncher # minecraft
+  ];
 
   # Attempt to fix audio issues
   services.pipewire.extraConfig.pipewire."92-low-latency" = {
