@@ -16,11 +16,11 @@
 
   # Use better performing proprietary NVIDIA driver
   nixpkgs.config.allowUnfree = true;
-  hardware.nvidia.open = false;
-  hardware.nvidia.modesetting.enable = true;
-  hardware.nvidia.package =
-    with import <nixos-unstable> { config = { allowUnfree = true; }; };
-    linuxPackages.nvidiaPackages.latest;
+  hardware.nvidia = {
+    open = false;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
+    modesetting.enable = true;
 
+  };
   environment.systemPackages = with pkgs; [ nvtopPackages.full ];
 }
