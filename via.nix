@@ -1,7 +1,9 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-     via
+    via
   ];
-  services.udev.packages = [ pkgs.via ];
+  services.udev.packages = with pkgs; [
+    via
+  ];
 }
