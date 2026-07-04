@@ -61,8 +61,6 @@ in
     # Firmware updates
     fwupd.enable = true;
 
-    xbanish.enable = true; # Hide cursor when typing
-
     avahi = {
       # Enables mDNS with .local domain support
       enable = lib.mkDefault true;
