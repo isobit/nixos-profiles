@@ -44,6 +44,7 @@
     bat
     bc
     bind # includes dig
+    bubblewrap
     curl
     direnv
     entr
@@ -59,8 +60,8 @@
     htop
     jq
     moreutils
-    neovim
     nixos-option
+    numbat
     openssl
     parted
     pstree
@@ -93,9 +94,13 @@
     rq
     shellcheck
     steampipe
+    glow
 
     cue
     jsonnet
+
+    age
+    passage
   ];
 
   users.users = {
