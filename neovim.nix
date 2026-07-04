@@ -1,9 +1,18 @@
 { pkgs, ... }:
 
 {
+  programs.neovim = {
+    enable = true;
+    configure = {
+      customRC = ''
+        luafile ~/.config/nvim/init.lua
+      '';
+      packages.treesitter.start = [
+        pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+      ];
+    };
+  };
   environment.systemPackages = with pkgs; [
-    neovim
-
     # language servers
     cuelsp                            # CUE
     efm-langserver                    # wraps other linting tools
