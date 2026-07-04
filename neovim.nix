@@ -15,6 +15,7 @@
   environment.systemPackages = with pkgs; [
     # language servers
     cuelsp                            # CUE
+    docker-language-server            # Dockerfile, etc
     efm-langserver                    # wraps other linting tools
     gopls                             # golang
     nixd                              # nix
@@ -30,5 +31,7 @@
     # rubyPackages.solargraph # ruby
     # yamllint                # YAML
     # deno                    # Javascript/TypeScript
+
+    alejandra # can by used by nixd for formatting
   ];
 }
