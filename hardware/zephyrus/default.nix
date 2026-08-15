@@ -20,8 +20,10 @@
   ];
   nixpkgs.config.allowUnfree = true;
   hardware.nvidia = {
+    # Rolling back driver due to issues with 595.
+    branch = "legacy_580";
+
     open = true;
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
     modesetting.enable = true;
     nvidiaSettings = true;
     prime = {
