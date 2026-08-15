@@ -106,4 +106,16 @@ in
         '';
     };
   };
+
+  programs.dconf.enable = true;
+  programs.dconf.profiles.user.databases = [
+    {
+      settings = {
+        "org/gnome/desktop/input-sources" = {
+          xkb-options = [ "caps:escape" ];
+        };
+      };
+    }
+  ];
+
 }
