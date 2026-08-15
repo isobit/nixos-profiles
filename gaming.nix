@@ -9,7 +9,12 @@
   programs.gamemode.enable = true;
   hardware.xone.enable = true; # xbox controller support
 
-  environment.systemPackages = with pkgs; [
-    prismlauncher # minecraft
-  ];
+  users.users.gaming = {
+      isNormalUser = true;
+      createHome = true;
+      extraGroups = [ "networkmanager" ];
+      packages = with pkgs; [
+        prismlauncher # minecraft
+      ];
+  };
 }
