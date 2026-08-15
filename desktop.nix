@@ -9,6 +9,7 @@ let
 in
 {
   imports = [
+    ./audio.nix
     ./flameshot.nix
     ./via.nix
   ];
