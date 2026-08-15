@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./audio.nix
+  ];
+
   # Merge luks options for better SSD performance.
   # boot.initrd.luks.devices."root" = {
   #   bypassWorkqueues = true;
