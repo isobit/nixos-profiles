@@ -37,6 +37,9 @@
     };
   };
 
+  services.logind.settings.Login.HandleLidSwitch = "suspend-then-hibernate";
+  systemd.sleep.settings.Sleep.HibernateDelaySec = "1h";
+
   services.asusd.enable = true;
   # Ensure /etc/asusd exists before the packaged asusd unit's
   # sandbox/mount namespace is set up.
