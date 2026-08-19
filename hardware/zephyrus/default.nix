@@ -45,5 +45,17 @@
   # sandbox/mount namespace is set up.
   environment.etc."asusd/.keep".text = "";
 
+  programs.dconf.profiles.user.databases = [
+    {
+      settings = {
+        # GNOME doesn't seem to respect the toggle for "Dim Screen" in Power
+        # Saving mode; dims after 30s even when disabled. As a workaround, we
+        # can set the idle-brightness to 100 so it has no effect (actual
+        # brighness will be min of idle-brightness and non-idle brightness).
+        "org/gnome/settings-daemon/plugins/power".idle-brightness = lib.gvariant.mkInt32 100;
+      };
+    }
+  ];
+
   environment.systemPackages = with pkgs; [ nvtopPackages.full ];
 }
