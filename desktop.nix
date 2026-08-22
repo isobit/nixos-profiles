@@ -96,14 +96,38 @@ in
           [org.gnome.desktop.wm.keybindings]
           close=['<Alt>w']
           toggle-maximized=['<Alt>Plus']
+          switch-applications=@as []
+          switch-applications-backward=@as []
+          switch-windows=['<Alt>Tab']
+          switch-windows-backward=['<Shift><Alt>Tab']
           ${lib.strings.concatMapStringsSep "\n" (i: "switch-to-workspace-${i}=['<Alt>${i}']") workspaces}
           ${lib.strings.concatMapStringsSep "\n" (i: "move-to-workspace-${i}=['<Alt><Shift>${i}']") workspaces}
 
           [org.gnome.settings-daemon.plugins.color]
           night-light-enabled=true
 
+          [org.gnome.desktop.interface]
+          color-scheme='prefer-dark'
+          clock-format='12h'
+          clock-show-date=true
+          cursor-theme='Numix-Cursor-Light'
+          icon-theme='Numix-Square'
+          show-battery-percentage=true
+
+          [org.gnome.desktop.calendar]
+          week-start-day='monday'
+
+          [org.gnome.desktop.datetime]
+          automatic-timezone=true
+
           [org.gnome.desktop.input-sources]
           xkb-options=['caps:escape']
+
+          [org.gnome.desktop.peripherals.touchpad]
+          natural-scroll=false
+
+          [org.gnome.shell.app-switcher]
+          current-workspace-only=true
 
           [org.gnome.shell]
           enabled-extensions=[${lib.strings.concatMapStringsSep "," (p: "'${p.extensionUuid}'") enabledGnomeExtensionPackages}]
