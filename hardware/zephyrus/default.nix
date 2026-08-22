@@ -49,6 +49,9 @@
     idle-brightness=100
   '';
 
+  # Avoid scan-induced latency spikes during video calls; AP-assisted roaming remains available.
+  networking.wireless.scanOnLowSignal = false;
+
   services.asusd.enable = true;
   # Ensure /etc/asusd exists before the packaged asusd unit's
   # sandbox/mount namespace is set up.
