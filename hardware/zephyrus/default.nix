@@ -54,6 +54,26 @@
   # sandbox/mount namespace is set up.
   environment.etc."asusd/.keep".text = "";
 
+  # The keyboard's USB lighting controller can become unresponsive after
+  # suspend-then-hibernate. Reauthorizing its USB device restores lighting,
+  # and restarting UPower makes GNOME rediscover the replaced LED device.
+  systemd.services.asus-keyboard-resume = {
+    wantedBy = [ "sleep.target" ];
+    after = [ "sleep.target" ];
+    wants = [ "upower.service" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = false;
+      ExecStart = pkgs.writeShellScript "asus-keyboard-resume" ''
+        sleep 2
+        echo 0 > /sys/bus/usb/devices/1-4/authorized
+        sleep 0.5
+        echo 1 > /sys/bus/usb/devices/1-4/authorized
+        sleep 0.5
+        ${pkgs.systemd}/bin/systemctl restart upower.service
+      '';
+    };
+  };
 
   environment.systemPackages = with pkgs; [ nvtopPackages.full ];
 }
