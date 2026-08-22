@@ -102,21 +102,13 @@ in
           [org.gnome.settings-daemon.plugins.color]
           night-light-enabled=true
 
+          [org.gnome.desktop.input-sources]
+          xkb-options=['caps:escape']
+
           [org.gnome.shell]
           enabled-extensions=[${lib.strings.concatMapStringsSep "," (p: "'${p.extensionUuid}'") enabledGnomeExtensionPackages}]
         '';
     };
   };
-
-  programs.dconf.enable = true;
-  programs.dconf.profiles.user.databases = [
-    {
-      settings = {
-        "org/gnome/desktop/input-sources" = {
-          xkb-options = [ "caps:escape" ];
-        };
-      };
-    }
-  ];
 
 }
