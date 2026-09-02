@@ -7,7 +7,9 @@
     ];
   };
   programs.gamemode.enable = true;
-  hardware.xone.enable = true; # xbox controller support
+
+  hardware.xone.enable = true;    # xbox controller support (dongle, usb)
+  hardware.xpadneo.enable = true; # xbox controller support (bluetooth)
 
   users.users.gaming = {
       isNormalUser = true;
