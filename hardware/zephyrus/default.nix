@@ -5,12 +5,10 @@
     ./audio.nix
   ];
 
-  # Merge luks options for better SSD performance.
-  # boot.initrd.luks.devices."root" = {
-  #   bypassWorkqueues = true;
-  #   allowDiscards = true;
-  # };
-  # services.fstrim.enable = true;
+  # Periodically trim mounted filesystems on the Zephyrus NVMe SSD.
+  # The installation-specific LUKS mapping in /etc/nixos/configuration.nix should
+  # set allowDiscards and bypassWorkqueues for the root filesystem.
+  services.fstrim.enable = true;
 
   # NVIDIA drivers with offloading to AMD integrated graphics
   hardware.graphics.enable = true;
