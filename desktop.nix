@@ -2,6 +2,7 @@
 
 let
   enabledGnomeExtensionPackages = with pkgs; [
+    gnomeExtensions.caffeine
     gnomeExtensions.appindicator
     gnomeExtensions.just-perfection
     gnomeExtensions.system-monitor-next
