@@ -19,11 +19,10 @@
 
   # Disable AMDGPU Panel Self Refresh to mitigate the Phoenix display-controller DMCUB and flip timeout failures seen during testing.
   boot.kernelParams = [ "amdgpu.dcdebugmask=0x10" ];
-  nixpkgs.config.allowUnfree = true;
-  hardware.nvidia = {
-    # Rolling back driver due to issues with 595.
-    branch = "legacy_580";
 
+  nixpkgs.config.allowUnfree = true;
+
+  hardware.nvidia = {
     open = true;
     modesetting.enable = true;
     nvidiaSettings = true;
