@@ -1,15 +1,15 @@
 { config, pkgs, ... }:
 
 let
-  version = "0.11.2";
+  version = "0.13.3";
   sources = {
     "x86_64-linux" = pkgs.fetchurl {
       url = "https://github.com/crmne/spotifast/releases/download/v${version}/spotifast-v${version}-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "276d891575bd547ec2fd11662c65a4ff5187ad63950c8cb426dbf13cfcd4f26d";
+      sha256 = "3412306e41b2cae2f7554bf973e442cf5dcef1f69e4c24045f2317ce80d24970";
     };
     "aarch64-linux" = pkgs.fetchurl {
       url = "https://github.com/crmne/spotifast/releases/download/v${version}/spotifast-v${version}-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "5f8fb5a8737d5ecadf2f4afa2e85e63d96ec385b1089d175c1b59d0a9f2d5e8d";
+      sha256 = "32b557445847167b56f203e84288c79ec885e58ed5167a9875b03da60d7d5c04";
     };
   };
   runtimeLibraries = with pkgs; [
