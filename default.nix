@@ -39,6 +39,9 @@
   # Enable nix command and flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Let josh pass unsigned/custom substituters and settings to the nix daemon
+  nix.settings.trusted-users = [ "root" "josh" ];
+
   environment.systemPackages = with pkgs; [
     bash
     bat
