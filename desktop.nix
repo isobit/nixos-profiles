@@ -33,6 +33,7 @@ in
     ghostty
     gnome-photos
     libreoffice
+    proton-vpn
     spotify
     vlc
     wezterm
