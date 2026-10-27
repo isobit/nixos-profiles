@@ -75,6 +75,13 @@ in
       drivers = with pkgs; [ gutenprint gutenprintBin ];
     };
 
+    # Short press suspends; holding the button still powers off. Used when
+    # GNOME doesn't grab the key, which otherwise falls back to logind's poweroff.
+    logind.settings.Login = {
+      HandlePowerKey = "suspend";
+      HandlePowerKeyLongPress = "poweroff";
+    };
+
     xserver = {
       enable = true;
 
@@ -104,6 +111,9 @@ in
           switch-windows-backward=['<Shift><Alt>Tab']
           ${lib.strings.concatMapStringsSep "\n" (i: "switch-to-workspace-${i}=['<Alt>${i}']") workspaces}
           ${lib.strings.concatMapStringsSep "\n" (i: "move-to-workspace-${i}=['<Alt><Shift>${i}']") workspaces}
+
+          [org.gnome.settings-daemon.plugins.power]
+          power-button-action='suspend'
 
           [org.gnome.settings-daemon.plugins.color]
           night-light-enabled=true
