@@ -28,8 +28,8 @@
   hardware.nvidia = {
     open = true;
     modesetting.enable = true;
-    powerManagement.enable = true;
     nvidiaSettings = true;
+
     prime = {
       offload = {
         enable = true;
@@ -39,6 +39,10 @@
       nvidiaBusId = "PCI:1@0:0:0";
       amdgpuBusId = "PCI:101@0:0:0";
     };
+
+    # Lets the driver power the dGPU fully off (D3cold) when idle, which saves
+    # battery with PRIME offload.
+    powerManagement.finegrained = true;
   };
 
   services.logind.settings.Login.HandleLidSwitch = "suspend-then-hibernate";
