@@ -20,6 +20,9 @@
   # Disable AMDGPU Panel Self Refresh to mitigate the Phoenix display-controller DMCUB and flip timeout failures seen during testing.
   boot.kernelParams = [ "amdgpu.dcdebugmask=0x10" ];
 
+  # The tiny power button driver signals init on every press, which starts a poweroff regardless of logind's power key setting. Blocking it leaves the standard button driver in charge.
+  boot.blacklistedKernelModules = [ "tiny_power_button" ];
+
   nixpkgs.config.allowUnfree = true;
 
   hardware.nvidia = {
