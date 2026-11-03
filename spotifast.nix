@@ -1,15 +1,15 @@
 { config, pkgs, ... }:
 
 let
-  version = "0.13.3";
+  version = "0.17.1";
   sources = {
     "x86_64-linux" = pkgs.fetchurl {
       url = "https://github.com/crmne/spotifast/releases/download/v${version}/spotifast-v${version}-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "3412306e41b2cae2f7554bf973e442cf5dcef1f69e4c24045f2317ce80d24970";
+      sha256 = "651702d4f18bf9c338eff96137723c122e187fd48902af4be562dc9b064c4970";
     };
     "aarch64-linux" = pkgs.fetchurl {
       url = "https://github.com/crmne/spotifast/releases/download/v${version}/spotifast-v${version}-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "32b557445847167b56f203e84288c79ec885e58ed5167a9875b03da60d7d5c04";
+      sha256 = "09a15da624485f9a7b4949491cf5bbfb6b17aef48a11cf868a5478f4fc1e6ae9";
     };
   };
   runtimeLibraries = with pkgs; [
@@ -24,6 +24,7 @@ let
     libXi
     libXrandr
     libxkbcommon
+    pipewire
     wayland
   ];
   spotifast =
