@@ -93,58 +93,63 @@ in
     };
 
     displayManager.gdm.enable = lib.mkDefault true;
-    desktopManager.gnome = {
-      enable = lib.mkDefault true;
-      extraGSettingsOverrides =
+    desktopManager.gnome.enable = lib.mkDefault true;
+  };
+
+  # GNOME defaults for every user, stored in a system dconf database.
+  # GSettings schema overrides (extraGSettingsOverrides) are avoided because
+  # NixOS silently drops overrides for any schema whose package isn't listed
+  # in extraGSettingsOverridePackages (e.g. all gnome-settings-daemon keys).
+  # Values a user has saved in their own dconf database still take precedence
+  # unless the key is locked.
+  programs.dconf.profiles.user.databases = [
+    {
+      settings =
         let
           workspaces = map toString (lib.lists.range 1 9);
-        in ''
-          [org.gnome.desktop.wm.preferences]
-          button-layout=':minimize,maximize,close'
+          workspaceBindings =
+            lib.listToAttrs (map (i: lib.nameValuePair "switch-to-workspace-${i}" [ "<Alt>${i}" ]) workspaces)
+            // lib.listToAttrs (map (i: lib.nameValuePair "move-to-workspace-${i}" [ "<Alt><Shift>${i}" ]) workspaces);
+          emptyStrings = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
+        in
+        {
+          "org/gnome/desktop/wm/preferences".button-layout = ":minimize,maximize,close";
 
-          [org.gnome.desktop.wm.keybindings]
-          close=['<Alt>w']
-          toggle-maximized=['<Alt>Plus']
-          switch-applications=@as []
-          switch-applications-backward=@as []
-          switch-windows=['<Alt>Tab']
-          switch-windows-backward=['<Shift><Alt>Tab']
-          ${lib.strings.concatMapStringsSep "\n" (i: "switch-to-workspace-${i}=['<Alt>${i}']") workspaces}
-          ${lib.strings.concatMapStringsSep "\n" (i: "move-to-workspace-${i}=['<Alt><Shift>${i}']") workspaces}
+          "org/gnome/desktop/wm/keybindings" = {
+            close = [ "<Alt>w" ];
+            toggle-maximized = [ "<Alt>Plus" ];
+            switch-applications = emptyStrings;
+            switch-applications-backward = emptyStrings;
+            switch-windows = [ "<Alt>Tab" ];
+            switch-windows-backward = [ "<Shift><Alt>Tab" ];
+          } // workspaceBindings;
 
-          [org.gnome.settings-daemon.plugins.power]
-          power-button-action='suspend'
+          "org/gnome/settings-daemon/plugins/power".power-button-action = "suspend";
 
-          [org.gnome.settings-daemon.plugins.color]
-          night-light-enabled=true
+          "org/gnome/settings-daemon/plugins/color".night-light-enabled = true;
 
-          [org.gnome.desktop.interface]
-          color-scheme='prefer-dark'
-          clock-format='12h'
-          clock-show-date=true
-          cursor-theme='Numix-Cursor-Light'
-          icon-theme='Numix-Square'
-          show-battery-percentage=true
+          "org/gnome/desktop/interface" = {
+            color-scheme = "prefer-dark";
+            clock-format = "12h";
+            clock-show-date = true;
+            cursor-theme = "Numix-Cursor-Light";
+            icon-theme = "Numix-Square";
+            show-battery-percentage = true;
+          };
 
-          [org.gnome.desktop.calendar]
-          week-start-day='monday'
+          "org/gnome/desktop/calendar".week-start-day = "monday";
 
-          [org.gnome.desktop.datetime]
-          automatic-timezone=true
+          "org/gnome/desktop/datetime".automatic-timezone = true;
 
-          [org.gnome.desktop.input-sources]
-          xkb-options=['caps:escape']
+          "org/gnome/desktop/input-sources".xkb-options = [ "caps:escape" ];
 
-          [org.gnome.desktop.peripherals.touchpad]
-          natural-scroll=false
+          "org/gnome/desktop/peripherals/touchpad".natural-scroll = false;
 
-          [org.gnome.shell.app-switcher]
-          current-workspace-only=true
+          "org/gnome/shell/app-switcher".current-workspace-only = true;
 
-          [org.gnome.shell]
-          enabled-extensions=[${lib.strings.concatMapStringsSep "," (p: "'${p.extensionUuid}'") enabledGnomeExtensionPackages}]
-        '';
-    };
-  };
+          "org/gnome/shell".enabled-extensions = map (p: p.extensionUuid) enabledGnomeExtensionPackages;
+        };
+    }
+  ];
 
 }
